@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Salvador Turísmo Magico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #333; }
+
+    /* NAVBAR — Flexbox space-between */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a3c6e;
+      padding: 14px 24px;
+    }
+    nav .logo { color: white; font-size: 1.3rem; font-weight: bold; }
+    nav ul { display: flex; list-style: none; gap: 20px; }
+    nav ul a { color: white; text-decoration: none; font-size: 0.95rem; }
+    nav ul a:hover { text-decoration: underline; }
+
+    /* HERO — Flexbox centrado */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #1a3c6e;
+      color: white;
+      padding: 60px 20px;
+    }
+    .hero h1 { font-size: 2rem; margin-bottom: 12px; }
+    .hero p  { font-size: 1.1rem; margin-bottom: 20px; color: #cce; }
+    .hero button {
+      padding: 12px 28px;
+      background: #e8a020;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .hero button:hover { background: #c98010; }
+
+    /* GALERÍA — CSS Grid con repeat + auto-fit */
+    #galeria { padding: 40px 20px; background: #f5f5f5; }
+    #galeria h2 { text-align: center; margin-bottom: 24px; font-size: 1.5rem; color: #1a3c6e; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    /* TARJETA con transición */
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-body { padding: 14px; }
+    .card-body h3 { font-size: 1rem; margin-bottom: 6px; color: #1a3c6e; }
+    .card-body p  { font-size: 0.88rem; color: #666; }
+
+    /* INFORMACIÓN — Flexbox con flex-wrap */
+    #info { padding: 40px 20px; background: white; }
+    #info h2 { text-align: center; margin-bottom: 24px; font-size: 1.5rem; color: #1a3c6e; }
+    .info-cols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .info-item {
+      flex: 1 1 180px;
+      background: #eef2f9;
+      border-left: 4px solid #1a3c6e;
+      padding: 16px;
+      border-radius: 6px;
+    }
+    .info-item h4 { font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 4px; }
+    .info-item p  { font-size: 1rem; font-weight: bold; color: #1a3c6e; }
+
+    /* FOOTER — Flexbox */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #1a3c6e;
+      color: white;
+      padding: 20px 24px;
+      font-size: 0.88rem;
+    }
+
+    /* RESPONSIVE — Tablet <= 900px */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* RESPONSIVE — Móvil <= 600px */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 10px; }
+      nav ul { gap: 14px; }
+      .grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">🌋 Visita Mi Pulgarcito SV</div>
+  <ul>
+    <li><a href="#galeria">Destinos</a></li>
+    <li><a href="#info">El País</a></li>
+    <li><a href="#footer">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Descubre El Salvador te sorprendera 🇸🇻</h1>
+  <p>Volcanes, playas y cultura en el corazón de Centroamérica.</p>
+  <button onclick="document.getElementById('galeria').scrollIntoView({behavior:'smooth'})">
+    Ver Destinos
+  </button>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <h2>Destinos Destacados</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=70" alt="Volcán Santa Ana" />
+      <div class="card-body">
+        <h3>Volcán Santa Ana</h3>
+        <p>El pico más alto del país con su hermosa laguna cratérica turquesa.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=70" alt="El Tunco" />
+      <div class="card-body">
+        <h3>El Tunco</h3>
+        <p>La playa de surf más famosa de El Salvador con atardeceres increíbles.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=400&q=70" alt="Joya de Cerén" />
+      <div class="card-body">
+        <h3>Joya de Cerén</h3>
+        <p>Patrimonio UNESCO, la "Pompeya de América" con ruinas mayas preservadas.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=70" alt="Lago Coatepeque" />
+      <div class="card-body">
+        <h3>Lago de Coatepeque</h3>
+        <p>Lago volcánico de aguas termales rodeado de naturaleza exuberante.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?w=400&q=70" alt="Suchitoto" />
+      <div class="card-body">
+        <h3>Suchitoto</h3>
+        <p>Pueblo colonial de adoquines, arte y el sereno lago Suchitlán.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc47?w=400&q=70" alt="Ruta de las Flores" />
+      <div class="card-body">
+        <h3>Ruta de las Flores</h3>
+        <p>36 km de pueblos coloniales, mercados y gastronomía típica salvadoreña.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INFORMACIÓN -->
+<section id="info">
+  <h2>El Salvador en datos</h2>
+  <div class="info-cols">
+    <div class="info-item"><h4>Capital</h4><p>San Salvador</p></div>
+    <div class="info-item"><h4>Población</h4><p>6.5 millones</p></div>
+    <div class="info-item"><h4>Idioma</h4><p>Español</p></div>
+    <div class="info-item"><h4>Moneda</h4><p>Dólar (USD)</p></div>
+    <div class="info-item"><h4>Clima</h4><p>20 – 32 °C</p></div>
+    <div class="info-item"><h4>Superficie</h4><p>21,041 km²</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <span>© 2026 Visita Mi Pulgarcito SV — Ing Edwin Guch </span>
+  <span>ingmerariguchmajano@gmail.com</span>
+</footer>
+
+<!-- JAVASCRIPT: resaltar tarjeta al hacer clic -->
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.card').forEach(c => c.style.outline = '');
+      card.style.outline = '3px solid #e8a020';
+    });
+  });
+</script>
+
+</body>
+</html>
